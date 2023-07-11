@@ -1,4 +1,4 @@
-//Car Window Wiper Using Servo Motor
+//Obstacle Detection by UltraSonic - Distance Indicated Using Servo Motor
 
 #include <NewPing.h>
 #include <Wire.h> 
