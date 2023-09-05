@@ -32,7 +32,7 @@ void loop() {
       Serial.println("Case 3: Below 15cm from Top/Tip of Tank, Turn On Motor");
       digitalWrite(3,HIGH);
     } else {
-      Serial.println("Case 4: Above 15cm from Top/Tip of Tank, Turn On Motor");
+      Serial.println("Case 4: Below 15cm from Top/Tip of Tank, Turn On Motor");
       digitalWrite(3,HIGH);
     }
   }
