@@ -5,13 +5,15 @@
 */
 
 #define MQ3_DIGITAL 3
-#define LED 11
+#define RED_LED 11
+#define GREEN_LED 12
 #define BUZZER 8
 #define MQ3_ANALOG A1
  
 void setup() {
   pinMode(MQ3_DIGITAL, INPUT);
-  pinMode(LED, OUTPUT);
+  pinMode(RED_LED, OUTPUT);
+  pinMode(GREEN_LED, OUTPUT);
   pinMode(BUZZER, OUTPUT);
   Serial.begin(9600);
 }
@@ -26,10 +28,12 @@ void loop() {
   Serial.println(mq3_digital);
  
   if (mq3_analog >= 350 &&  mq3_digital == LOW ) {
-    digitalWrite(LED, HIGH);
+    digitalWrite(RED_LED, HIGH);
+    digitalWrite(GREEN_LED,LOW);
     digitalWrite(BUZZER, HIGH);
   } else {
-    digitalWrite(LED, LOW);
+    digitalWrite(RED_LED, LOW);
+    digitalWrite(GREEN_LED,HIGH);
     digitalWrite(BUZZER, LOW);
   }
   delay(500);
