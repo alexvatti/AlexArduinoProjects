@@ -195,16 +195,16 @@ int main(void)
         //Reading ADC Value ( 0 to 255)
         result = ADC0.RESULT;
         //Converting into another Scale 255 to 0
-        uint8_t reversed_result = 255 - result;
+        uint16_t reversed_result = 255 - result;
 
         // Define the TOP value for TCA0 (adjust this as needed) (360 Hz)
         uint16_t TOP_VALUE = 9250; // Example value, replace with your actual TOP value
 
         // Calculate the scaled and reversed brightness value
-        uint16_t scaled_brightness = ((uint16_t)reversed_result * TOP_VALUE) / 255;
+        uint16_t scaled_brightness = (reversed_result * TOP_VALUE) / 255;
 
         // Set the TCA0 compare register to control display brightness
-        TCA0.SINGLE.CMP1BUF = scaled_brightness;
+        TCA0.SINGLE.CMP1 = scaled_brightness;
 
         /** CODE: Write your code for Ex 8.3 above this line. */
 
@@ -227,14 +227,15 @@ int main(void)
 
         if (result > 223 && result < 255) // -----> 223 is 87.5% of 255
         {
-            TCA0.SINGLE.CTRLB |= TCA_SINGLE_CMP0_bm; // Enable PWM on pin connected to 
+            TCA0.SINGLE.CTRLA |= TCA_SINGLE_WGMODE_SINGLESLOPE_gc;
+            TCA0.SINGLE.CTRLA |= TCA_SINGLE_CMP0_bm; // Enable PWM on pin connected to 
             // Set the PWM frequency for 360 Hz by adjusting PER
             TCA0.SINGLE.PER = 9250; // For a 360 Hz frequency
             // Set the duty cycle to 50% (half the period)
             TCA0.SINGLE.CMP0 = TCA0.SINGLE.PER / 2;
         } else 
         {
-            TCA0.SINGLE.CTRLB &= ~TCA_SINGLE_CMP0_bm; // Disable PWM 
+            TCA0.SINGLE.CTRLA &= ~TCA_SINGLE_CMP0_bm; // Disable PWM 
         }
         /** CODE: Write your code for Ex 8.4 above this line. */
     }
