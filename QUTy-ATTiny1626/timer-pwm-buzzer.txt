@@ -1,0 +1,37 @@
+void buzzer_on(const uint8_t tone)
+{
+    static const uint16_t periods[4] = {TONE1_PER, TONE2_PER, TONE3_PER, TONE4_PER};
+
+    if (tone >=0 && tone <=3 ) {
+        TCA0.SINGLE.PER = periods[tone];
+        TCA0.SINGLE.CMP0 = periods[tone]/2;
+        TCA0.SINGLE.CTRLA |= TCA_SINGLE_ENABLE_bm; // Enabling the timer.
+        TCA0.SINGLE.CTRLB |= TCA_SINGLE_CMP0EN_bm; // Enable PWM on pin connected to buzzer
+    }
+    /** CODE: Write your code for Ex 12.3 within this function. */
+}
+
+void buzzer_off(void)
+{
+    /** CODE: Write your code for Ex 12.3 within this function. */
+    TCA0.SINGLE.CTRLA &= ~TCA_SINGLE_ENABLE_bm; // disable the timer.
+    TCA0.SINGLE.CTRLB &= ~TCA_SINGLE_CMP0EN_bm; // Disable PWM
+    PORTB.OUTCLR |= PIN0_bm;
+}
+
+
+ISR(TCB0_INT_vect)
+{
+    //write the code here
+    TCB0.INTFLAGS = TCB_CAPT_bm;   // Reset interrupt flag
+}
+
+// Function: timer_0_init
+// Description: Initialize Timer 0  hardware for timing and interrupts.
+void timer_0_init(void)
+{
+    // Configure Timer/Counter B0 for 1ms interrupt for elapsed time measurement
+    TCB0.CCMP = 3333;
+    TCB0.INTCTRL = TCB_CAPT_bm;
+    TCB0.CTRLA = TCB_ENABLE_bm;
+}
