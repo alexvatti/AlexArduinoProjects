@@ -22,3 +22,5 @@ The first thing you need to do to start programming your boards with MicroPython
 3) Open Thonny IDE. Go to Tools > Options > Interpreter.
 
 4) Select the interpreter you want to use accordingly to the board you’re using and select the COM port your board is connected to. Finally, click on the link Install or update firmware.
+
+![My Image](ThonnyPython-Interpreter.jpg)
