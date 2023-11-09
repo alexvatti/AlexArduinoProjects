@@ -28,3 +28,11 @@ The first thing you need to do to start programming your boards with MicroPython
 5) Select the port once again, and then click Family , Varient , Version and finally click on Install.
 
 ![My Image](Install.png)
+
+6) Thonny IDE should now be connected to your board and you should see the prompt on the Shell.
+
+   MicroPython v1.21.0 on 2023-10-05; Generic ESP32 module with ESP32
+
+  Type "help()" for more information.
+
+   >>> 
