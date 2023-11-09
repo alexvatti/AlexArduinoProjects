@@ -14,7 +14,7 @@ After the installation is completed, open Thonny IDE
 
 # Flashing MicroPython Software using Thonny IDE
 
-1).MicroPython isn’t flashed onto the ESP32 or ESP8266 boards by default. 
+1) MicroPython isn’t flashed onto the ESP32 or ESP8266 boards by default. 
 The first thing you need to do to start programming your boards with MicroPython is flash/upload/burn the firmware.
 
 2) Connect your ESP32 or ESP8266 board to your computer.
@@ -24,3 +24,7 @@ The first thing you need to do to start programming your boards with MicroPython
 4) Select the interpreter you want to use accordingly to the board you’re using and select the COM port your board is connected to. Finally, click on the link Install or update firmware.
 
 ![My Image](ThonnyPython-Interpreter.jpg)
+
+5) Select the port once again, and then click Family , Varient , Version and finally click on Install.
+
+![My Image](Install.png)
