@@ -1,4 +1,10 @@
-from machine import Pin, UART, SoftI2C
+'''
+NEO-6M GPS module and how to interface it with ESP32
+using MicroPython to obtain GPS parameters such
+as latitude, longitude, altitude, date, time, speed, satellites
+'''
+
+from machine import Pin, UART
 import utime, time
 
 gpsModule = UART(2, baudrate=9600)
