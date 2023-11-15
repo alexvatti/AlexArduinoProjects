@@ -9,12 +9,12 @@ gc.collect()
 WIFI_SSID = "TP-Link_375D"
 WIFI_PASS = "11862574"
 
-SERVER = "mqtt-v2-thingspeak.com"
-PORT=1883
-CHANNEL_ID = ""
-USER=""
-CLIENT_ID=""
-PASSWORD=""
+SERVER = "mqtt-v2.thingspeak.com"
+PORT = 1883
+CHANNEL_ID = "2345513"
+USER="NwgKFwYbORo4NyMOKScgOw8"
+CLIENT_ID="NwgKFwYbORo4NyMOKScgOw8"
+PASSWORD="CI/iQEAXRtkyCyHZOWyO4kQk"
 
 
 def do_connect():
@@ -36,12 +36,12 @@ client.connect()
 print("MQTT Connected")
 
 counter = 0
-topicOut = "channels/" + CHANNEL_ID + "/publish"
+topicout = "channels/" + CHANNEL_ID + "/publish"
 
 while True:
     if counter > 100:
-	counter = 0
-    client.publish(topicOut,"filed1="+str(counter))
+        counter = 0
+    client.publish(topicout,"Field1="+str(counter))
     print(counter)
     counter = counter +  10
     time.sleep(2)
