@@ -47,12 +47,16 @@ def v0_handler(value):
 
 
 
-def dht_temp():
+def dht_temp_hum():
     sensor.measure()
     temp = sensor.temperature()
     blynk.virtual_write(1,temp)
+    hum = sensor.humidity()
+    blynk.virtual_write(2,hum)
+    print("temp=",temp)
+    print("humidity=",hum)
 
 
 while True:
     blynk.run()
-    dht_temp()
+    dht_temp_hum()
