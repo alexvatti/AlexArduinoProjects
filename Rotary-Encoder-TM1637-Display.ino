@@ -15,10 +15,11 @@ void setup() {
   pinMode (OUTPUT_A,INPUT);
   pinMode (OUTPUT_B,INPUT);
   display.setBrightness(5);
-	// Clear the display
-	display.clear();
+  // Clear the display
+  display.clear();
   Serial.begin(9600); // Initialize serial communication
   OUTPUT_A_STATE = digitalRead(OUTPUT_A); // Read and store the initial state of OUTPUT_A
+  display.showNumberDec(counter);
 }
 
 void loop() {
