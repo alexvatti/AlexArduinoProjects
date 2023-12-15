@@ -41,4 +41,20 @@ void setup() {
 void loop() {
   // Your main code can go here
   // For simplicity, the example only initializes the LCD once and displays a static message
+    // Set the cursor to the first position on the first line
+  lcd.setCursor(0, 0);
+
+  // Print a message to the LCD
+  lcd.print("ESP32 PROJECTS");
+
+    // Set the cursor to the first position on the second line
+  lcd.setCursor(0, 1);
+
+  // Print another message to the LCD
+  lcd.print("ALEX ARDUINO");
+
+  delay(1000);
+
+  lcd.clear();
+  delay(1000);
 }
